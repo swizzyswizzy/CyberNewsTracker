@@ -8,7 +8,7 @@ https://github.com/ApiusTechnologies/TTT
 
 Tested on:
 - nginx
-- python >3.10
+- python 3.10
  
 
 After running setup script (setup.sh), configuration files will be copied to specified nginx directory (default `/etc/nginx`) and nginx service will be reloaded
