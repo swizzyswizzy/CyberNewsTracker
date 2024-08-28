@@ -1,0 +1,25 @@
+services:
+  frontend:
+    build: web/.
+    ports:
+      - 80:80
+    networks:
+      - backend_network
+      - frontend_network
+
+  backend:
+    build: backend/.
+    ports:
+      - 9000:9000
+    networks:
+      - backend_network
+
+  # database:
+  #   build: database/.
+
+
+#TODO Dorobić networking pomiędzy kontenerami - teraz nie działa, bo nie ma komunikacji!
+
+networks:
+  backend_network:
+  frontend_network:
