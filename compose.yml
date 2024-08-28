@@ -13,12 +13,12 @@ services:
       - 9000:9000
     networks:
       - backend_network
+    domainname: backend.local
 
   # database:
   #   build: database/.
 
 
-#TODO Dorobić networking pomiędzy kontenerami - teraz nie działa, bo nie ma komunikacji!
 
 networks:
   backend_network:
