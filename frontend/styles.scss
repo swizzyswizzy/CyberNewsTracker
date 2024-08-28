@@ -1,0 +1,156 @@
+// Variables
+$primary-color: #333;
+$secondary-color: #f0f0f0;
+$accent-color: #ff6b6b;
+$breakpoint-sm: 768px;
+
+// Mixins
+@mixin transition($property: all, $duration: 0.3s, $easing: ease-in-out) {
+    transition: $property $duration $easing;
+}
+
+// Base styles
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: $secondary-color;
+}
+
+// Header
+header {
+    background-color: $primary-color;
+    color: white;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .nav-links {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+        margin: 0;
+
+        li {
+            a {
+                color: white;
+                text-decoration: none;
+                @include transition(color);
+                &:hover {
+                    color: $accent-color;
+                }
+            }
+        }
+    }
+
+    @media (max-width: $breakpoint-sm) {
+        .nav-links {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+
+// Main content
+main {
+    padding-top: 6rem;
+}
+
+// Hero section
+.hero {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(to right, $primary-color, $accent-color);
+    color: white;
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 0;
+    }
+
+    p {
+        font-size: 1.5rem;
+        margin-top: 0;
+    }
+
+    .cta-btn {
+        background-color: white;
+        color: $primary-color;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        cursor: pointer;
+        @include transition;
+
+        &.animate {
+            transform: scale(1.1);
+        }
+
+        &:hover {
+            background-color: $accent-color;
+            color: white;
+        }
+    }
+}
+
+// Products section
+.products {
+    padding: 2rem;
+    text-align: center;
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+
+        .product {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            @include transition;
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            }
+
+            img {
+                max-width: 100%;
+                border-radius: 4px;
+            }
+
+            h3 {
+                margin: 0.5rem 0;
+                font-size: 1.1rem;
+            }
+
+            p {
+                margin: 0.5rem 0;
+                color: $accent-color;
+            }
+
+            button {
+                background-color: $primary-color;
+                color: white;
+                border: none;
+                padding: 0.5rem 1rem;
+                cursor: pointer;
+                @include transition;
+
+                &:hover {
+                    background-color: $accent-color;
+                }
+            }
+        }
+    }
+}

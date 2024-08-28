@@ -34,7 +34,7 @@ def parseRssArticles(url, limit=None) -> dict:
 def convertArticleListToHtml(article: list) -> str:
    ... 
 
-@app.route('/rssfeed', methods=['GET'])
+@app.route('/rssParser', methods=['GET'])
 def rssfeed():
     articles = parseRssArticles(rssUrl)
     return articles
