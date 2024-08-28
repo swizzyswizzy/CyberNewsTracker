@@ -4,22 +4,25 @@ services:
     ports:
       - 80:80
     networks:
-      - backend_network
-      - frontend_network
+      docker_network:
+        ipv4_address: 10.48.81.10
 
   backend:
     build: backend/.
     ports:
       - 9000:9000
     networks:
-      - backend_network
-    domainname: backend.local
+      docker_network:
+        ipv4_address: 10.48.81.11
 
   # database:
   #   build: database/.
 
-
-
 networks:
-  backend_network:
-  frontend_network:
+  docker_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.48.0.0/16
+          ip_range: 10.48.81.0/24
+          gateway: 10.48.81.1

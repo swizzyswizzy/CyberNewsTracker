@@ -11,4 +11,4 @@ RUN pip install -r requirements.txt
 
 # running app
 
-ENTRYPOINT python -m flask --app main run --debug --host 0.0.0.0 -p 9000
+ENTRYPOINT python main.py

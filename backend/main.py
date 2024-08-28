@@ -4,8 +4,6 @@ import json
 
 app = Flask(__name__)
 
-# Run
-# sudo flask --app app run --debug -p 80
 
 #TODO 
 # https://flask.palletsprojects.com/en/2.3.x/deploying/proxy_fix/
@@ -41,5 +39,9 @@ def rssfeed():
     articles = parseRssArticles(rssUrl)
     return articles
 
+def main():
+    app.run("0.0.0.0", "9000")
 
 
+if __name__ == "__main__":
+    main()
