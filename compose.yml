@@ -19,7 +19,7 @@ services:
         ipv4_address: 10.48.81.11
 
   frontend:
-    build: frontend/.
+    build: proxy/frontend/.
 
   # database:
   #   build: database/.
