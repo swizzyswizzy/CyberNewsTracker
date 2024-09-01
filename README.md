@@ -6,10 +6,10 @@ https://github.com/ApiusTechnologies/TTT
 
 ## Requirements
 
-Tested on:
-- nginx
-- python 3.10
- 
+Just run:
+```
+docker compose up (-d)
+``` 
 
 
 
