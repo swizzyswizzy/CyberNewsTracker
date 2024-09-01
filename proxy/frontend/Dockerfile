@@ -1,16 +1,17 @@
 # Use an official Dart runtime as a parent image
 FROM dart:stable
 
-# Set the working directory in the container
-WORKDIR /app
-
 # Copy everything from the current directory to the working directory in the container
-COPY . /app
+COPY ./src/ /app
 
 # Install Dart Sass
 RUN dart pub global activate sass
 
-# Compile SCSS to CSS
-ENTRYPOINT sass styles.scss:styles.css
+# Install vim
+# RUN apt update -y && apt install vim -y
 
-#CMD ["tail", "-f", "/dev/null"]
+CMD ["sass", "--watch", "/app/:/app/"]
+
+# Compile SCSS to CSS
+# ENTRYPOINT sass styles.scss:styles.css
+

@@ -9,6 +9,8 @@ services:
     networks:
       docker_network:
         ipv4_address: 10.48.81.10
+    volumes:
+      - shared_web_volume:/usr/share/html
 
   backend:
     build: backend/.
@@ -20,6 +22,8 @@ services:
 
   frontend:
     build: proxy/frontend/.
+    volumes:
+      - shared_web_volume:/app
 
   # database:
   #   build: database/.
@@ -32,3 +36,7 @@ networks:
         - subnet: 10.48.0.0/16
           ip_range: 10.48.81.0/24
           gateway: 10.48.81.1
+
+volumes:
+  shared_web_volume:
+    driver: local
